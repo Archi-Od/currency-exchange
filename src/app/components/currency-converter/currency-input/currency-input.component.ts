@@ -8,7 +8,7 @@ import {
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {AsyncPipe, NgForOf} from "@angular/common";
-import {AbstractControl, FormControl, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
 import {CurrencyModel} from "../../../models/currency.model";
 import {MatOptionSelectionChange} from "@angular/material/core";

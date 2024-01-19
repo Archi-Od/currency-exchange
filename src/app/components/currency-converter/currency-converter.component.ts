@@ -2,7 +2,6 @@ import {ChangeDetectorRef, Component, DestroyRef, OnInit} from "@angular/core";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {CurrencyService} from "../../services/currency.service";
 import {CurrencyConverter, CurrencyModel} from "../../models/currency.model";
-import {CurrencySelectorComponent} from "../currency-selector/currency-selector.component";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {TranslateModule} from "@ngx-translate/core";
@@ -25,7 +24,6 @@ export type IForm<T> = {
     standalone: true,
     imports: [
         NgIf,
-        CurrencySelectorComponent,
         FormsModule,
         TranslateModule,
         ReactiveFormsModule,

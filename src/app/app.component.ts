@@ -4,9 +4,8 @@ import {RouterOutlet} from "@angular/router";
 import {MyTranslateModule} from "./shared/translate.module";
 import {HeaderComponent} from "./components/header/header.component";
 import {TranslateService} from "@ngx-translate/core";
-import {CurrencySelectorComponent} from "./components/currency-selector/currency-selector.component";
-import {CurrencyConverterComponent} from "./components/currency-container/currency-converter.component";
 import {FormsModule} from "@angular/forms";
+import {CurrencyConverterComponent} from "./components/currency-converter/currency-converter.component";
 
 @Component({
     selector: "app-root",
@@ -17,7 +16,6 @@ import {FormsModule} from "@angular/forms";
         FormsModule,
         MyTranslateModule,
         HeaderComponent,
-        CurrencySelectorComponent,
         CurrencyConverterComponent,
     ],
     templateUrl: "./app.component.html",
