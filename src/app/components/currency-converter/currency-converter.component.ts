@@ -40,10 +40,10 @@ export type IForm<T> = {
         CurrencyInputComponent
     ],
     providers: [CurrencyService],
-    templateUrl: "./currency-container.component.html",
-    styleUrl: "./currency-container.component.less"
+    templateUrl: "./currency-converter.component.html",
+    styleUrl: "./currency-converter.component.less"
 })
-export class CurrencyContainerComponent implements OnInit {
+export class CurrencyConverterComponent implements OnInit {
     public _loading: boolean = true;
 
     public currencyRateFrom?: number;

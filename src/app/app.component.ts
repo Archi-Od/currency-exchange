@@ -5,7 +5,7 @@ import {MyTranslateModule} from "./shared/translate.module";
 import {HeaderComponent} from "./components/header/header.component";
 import {TranslateService} from "@ngx-translate/core";
 import {CurrencySelectorComponent} from "./components/currency-selector/currency-selector.component";
-import {CurrencyContainerComponent} from "./components/currency-container/currency-container.component";
+import {CurrencyConverterComponent} from "./components/currency-container/currency-converter.component";
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -18,7 +18,7 @@ import {FormsModule} from "@angular/forms";
         MyTranslateModule,
         HeaderComponent,
         CurrencySelectorComponent,
-        CurrencyContainerComponent,
+        CurrencyConverterComponent,
     ],
     templateUrl: "./app.component.html",
     styleUrl: "./app.component.less"
