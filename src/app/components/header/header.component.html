@@ -1,0 +1,21 @@
+<div class="header">
+    <div class="header__title">
+        {{ "header.currency.exchange" | translate }}
+    </div>
+
+    @if (rates?.length) {
+        <div class="header__rates">
+            @for (rate of rates; track rate) {
+                <div>
+                    <div class="header__rates-title">{{ rate.title | translate}}</div>
+                    <div class="header__rates-rate">{{ rate.rateBuy }} / {{ rate.rateSell }}</div>
+                </div>
+            }
+        </div>
+    } @else {
+        <mat-spinner diameter="30"></mat-spinner>
+    }
+</div>
+
+
+
