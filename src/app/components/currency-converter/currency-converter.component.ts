@@ -8,7 +8,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {finalize, map, Observable, startWith, switchMap} from "rxjs";
+import {combineLatest, finalize, map, Observable, startWith, switchMap} from "rxjs";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
@@ -110,16 +110,20 @@ export class CurrencyConverterComponent implements OnInit {
         this.filteredCurrenciesFrom = this.createFilteredCountriesObservable("currencyFrom");
         this.filteredCurrenciesTo = this.createFilteredCountriesObservable("currencyTo");
 
-        this.formGroup.valueChanges.pipe(
+        combineLatest([
+            this.formGroup.controls["currencyFrom"].valueChanges,
+            this.formGroup.controls["currencyTo"].valueChanges,
+        ]).pipe(
             takeUntilDestroyed(this.destroy$)
-        ).subscribe((formData: CurrencyConverter) => {
+        ).subscribe(([currencyFrom, currencyTo]) => {
+            const amountFrom = this.calculatedRateFrom || this.formGroup.value.amountFrom;
             if (this.currencyRateFrom && this.currencyRateTo) {
                 const rate = this.getRate();
-                const result = (formData.amountFrom * rate).toFixed(2);
-                if (formData.amountFrom) {
+                const result = (amountFrom * rate).toFixed(2);
+                if (amountFrom) {
                     this.calculatedRateTo = result;
                 }
-                this.getResultInfoRate(formData);
+                this.getResultInfoRate(currencyFrom, currencyTo);
             }
         })
 
@@ -162,8 +166,7 @@ export class CurrencyConverterComponent implements OnInit {
         return (this.currencyRateFrom ?? 1) / (this.currencyRateTo ?? 1);
     }
 
-    private getResultInfoRate(formData: CurrencyConverter): void {
-        const {currencyFrom, currencyTo} = formData
+    private getResultInfoRate(currencyFrom: string, currencyTo: string): void {
         this.resultInfo = String("1.00 " + currencyFrom + " = " + this.getRate().toFixed(2) + " " + currencyTo + "\n" +
             "1.00 " + currencyTo + " = " + (1 / this.getRate()).toFixed(2) + " " + currencyFrom);
     }
