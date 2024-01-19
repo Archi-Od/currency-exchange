@@ -1,0 +1,31 @@
+@blue: rgba(85, 88, 218, 1);
+@bright-blue: rgba(95, 209, 249, 1);
+@white: #dadada;
+
+.header {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: radial-gradient(circle farthest-corner at 12.3% 19.3%, @blue 0%, @bright-blue 100.2%);
+    padding: 0 20px;
+
+    &__title {
+        color: @white;
+    }
+
+    &__rates {
+        display: flex;
+        align-items: center;
+
+        > *:first-child {
+            margin-right: 20px;
+        }
+
+        &-title {
+            padding-bottom: 5px;
+            text-align: center;
+        }
+    }
+}
