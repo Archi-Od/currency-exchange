@@ -2,5 +2,7 @@
   "header.currency.exchange": "Currency exchange",
   "currency.converter": "Currency Converter",
   "currency.usd": "USD",
-  "currency.eur": "EUR"
+  "currency.eur": "EUR",
+  "amount.control.error": "Amount should be bigger than 0",
+  "currency.required.error": "Currency is required"
 }

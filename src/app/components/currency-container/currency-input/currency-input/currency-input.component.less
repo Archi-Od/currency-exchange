@@ -1,0 +1,37 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.currency {
+    &__field {
+        display: flex;
+        flex-direction: row;
+        min-width: 180px;
+
+        &-flag {
+            border-radius: 5px;
+            height: 32px;
+            min-width: 40px;
+            max-width: 40px;
+            scale: 60%;
+            outline: 1.5px solid #eaeaea;
+        }
+
+        &-name {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.mat-mdc-option {
+    padding: 0 5px;
+    --mat-option-label-text-line-height: 20px;
+    --mat-option-label-text-size: 14px;
+}
+
+.error {
+    font-size: 10px;
+}

@@ -1,0 +1,40 @@
+@if (!_loading) {
+    <div class="container">
+        <div class="container__title">
+            <h1>{{ "currency.converter" | translate }}</h1>
+        </div>
+
+        <form class="container__form"
+              [formGroup]="formGroup"
+        >
+            <div class="container__form-field">
+                <app-currency-input
+                        placeholder="From"
+                        [amountControl]="formGroup.controls['amountFrom']"
+                        [selectorControl]="formGroup.controls['currencyFrom']"
+                        [calculatedRate]="calculatedRateFrom"
+                        [filteredCurrencies]="filteredCurrenciesFrom"
+                        (selectRate)="onSelectChange($event, true)"
+                ></app-currency-input>
+            </div>
+
+            <div class="container__form-field">
+                <app-currency-input
+                        placeholder="To"
+                        [amountControl]="formGroup.controls['amountTo']"
+                        [selectorControl]="formGroup.controls['currencyTo']"
+                        [calculatedRate]="calculatedRateTo"
+                        [filteredCurrencies]="filteredCurrenciesTo"
+                        (selectRate)="onSelectChange($event)"
+                ></app-currency-input>
+            </div>
+        </form>
+
+
+        <div class="result-currency" *ngIf="formGroup.valid">
+            {{ resultInfo }}
+        </div>
+    </div>
+} @else {
+    <mat-spinner diameter="50" class="loader"></mat-spinner>
+}

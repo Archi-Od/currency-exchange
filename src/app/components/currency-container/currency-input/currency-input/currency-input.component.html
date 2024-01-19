@@ -1,0 +1,35 @@
+<mat-form-field>
+    <input matInput
+           placeholder="Amount"
+           type="number"
+           [formControl]="amountControl"
+           [value]="calculatedRate"
+           [min]="0"
+           [step]="10"
+    >
+    @if (amountControl.hasError('min') || amountControl.hasError('required')) {
+        <mat-error class="error">{{ "amount.control.error" | translate }}</mat-error>
+    }
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput
+           [placeholder]="placeholder"
+           [formControl]="selectorControl"
+           [matAutocomplete]="auto"
+    >
+    @if (selectorControl?.hasError('required')) {
+        <mat-error>{{ "currency.required.error" | translate }}</mat-error>
+    }
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let currency of filteredCurrencies | async"
+                    [value]="currency.name"
+                    (onSelectionChange)="selectRate.emit($event)"
+        >
+            <div class="currency__field">
+                <div class="currency__field-flag currency-flag currency-flag-{{ currency.name.toLowerCase() }}"></div>
+                <div class="currency__field-name">{{ currency.name }}{{ currency.fullName ? ' - ' + currency.fullName : '' }}</div>
+            </div>
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>

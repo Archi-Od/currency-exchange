@@ -4,3 +4,10 @@ export interface CurrencyModel {
     name: string;
     symbol: string;
 }
+
+export interface CurrencyConverter {
+    amountFrom: number;
+    amountTo: number;
+    currencyFrom: string;
+    currencyTo: string;
+}
