@@ -83,7 +83,7 @@ export class CurrencyContainerComponent implements OnInit {
 
                 for (const key in exchangeRateData.rates) {
                     const value = exchangeRateData.rates[key];
-                    const currency: CurrencyModel = {rate: value, fullName: "", name: key, symbol: ""};
+                    const currency: CurrencyModel = {rate: value, fullName: "", name: key};
                     currencies.push(currency);
                 }
 
@@ -94,7 +94,6 @@ export class CurrencyContainerComponent implements OnInit {
                         currencies[index] = {
                             ...currencies[index],
                             fullName: country.currencies[name].name,
-                            symbol: country.currencies[name].symbol
                         };
                     }
                 });
@@ -168,7 +167,7 @@ export class CurrencyContainerComponent implements OnInit {
     private getResultInfoRate(formData: CurrencyConverter): void {
         const {currencyFrom, currencyTo} = formData
         this.resultInfo = String("1.00 " + currencyFrom + " = " + this.getRate().toFixed(2) + " " + currencyTo + "\n" +
-            (1).toFixed(2) + " " + currencyTo + " = " + (1 / this.getRate()).toFixed(2) + " " + currencyFrom);
+            "1.00 " + currencyTo + " = " + (1 / this.getRate()).toFixed(2) + " " + currencyFrom);
     }
 
     private createFilteredCountriesObservable(controlName: string): Observable<CurrencyModel[]> {

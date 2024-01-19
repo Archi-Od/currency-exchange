@@ -3,7 +3,7 @@
         {{ "header.currency.exchange" | translate }}
     </div>
 
-    @if (rates?.length) {
+    @if (rates.length) {
         <div class="header__rates">
             @for (rate of rates; track rate) {
                 <div>
