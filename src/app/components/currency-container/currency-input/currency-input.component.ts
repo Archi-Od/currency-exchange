@@ -10,7 +10,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {AbstractControl, FormControl, ReactiveFormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
-import {CurrencyModel} from "../../../../models/currency.model";
+import {CurrencyModel} from "../../../models/currency.model";
 import {MatOptionSelectionChange} from "@angular/material/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";

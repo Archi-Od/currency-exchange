@@ -14,7 +14,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatOptionSelectionChange} from "@angular/material/core";
-import {CurrencyInputComponent} from "./currency-input/currency-input/currency-input.component";
+import {CurrencyInputComponent} from "./currency-input/currency-input.component";
 
 export type IForm<T> = {
     [K in keyof T]?: any;
